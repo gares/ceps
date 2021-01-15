@@ -10,8 +10,8 @@ We aim at a release process for Coq and the Coq platform which makes it
 easier for users to provide feedback and for developers to deliver fixes.
 
 In a nutshell the Coq "beta period" is replaced by a Coq platform "beta period".
-Coq devs tag a almost final version on top of which the Coq platform core is
-built. Coq point release are then used as a *quick* mean to deliver fixes
+Coq devs tag an almost final version on top of which the Coq platform core is
+built. Coq point release are then used as a *quick* means to deliver fixes
 to the platform.
 
 # Motivation
@@ -20,7 +20,7 @@ The beta testing period does not provide enough feedback to sensibly improve
 Coq between the `VX+beta1` and `VX.0` tags. The reasons are, most important
 last:
 - users have better things to do, frankly
-- one month is short, especially with Christmas/summer holydays around
+- one month is short, especially with Christmas/summer holydays or conferences around
 - in order to test Coq you are likely to need a bunch of Coq packages, and they
   are typically only available after the beta period is over
 
@@ -29,13 +29,12 @@ still change many things. As a results users are even less happy to spend time
 working on a moving target.
 
 Finally, due to the cost of backporting breaking changes from the master
-branch to the release branch, during 8.12 and 8.13 release cycle this only
-happened very early, just after branching (only 2 in the beta period for 8.12,
-0 for 8.13).
+branch to the release branch, this only
+happened very early in the release cycle (for example only 2 such changes were backported in the beta period for 8.12, 0 for 8.13).
 
 ## New actor: platform
 
-The Coq platform is a selection of Coq package versions which work well
+The Coq platform is a selection of Coq packages which work well
 for a given Coq version. One of its objective is to disentangle the release
 of Coq with the release of other packages. It provides scripts that build
 that selection of Coq packages on Windows, Mac and Linux from sources
@@ -71,10 +70,10 @@ Artifacts:
 On time based schedule the RM branches vX.
 
 1. The RM shepherds the few PR which are ready and pins projects tracked by   CI. Then he tags. This should take 10 days. No packages are built, just a git
-tag. A docker image is build, to that upstreams can use them in CI. No breaking change is allowed from now on.
+tag. A docker image is built, so that project maintainers can use it in CI. No breaking change is allowed from now on (unless a severe problem is found).
 2. Doc is updated (eg. Changes file) and eventual fixes required by the platform
 are done. Ideally no other change is done. This should take 10 days.
-3. In response to a severe bug report Coq devs make an hotfix and the RM tags a point release. Once the fix is produced, a tag comes in 2 days.
+3. In response to a severe bug report Coq devs make an hotfix in master which is backported to vX by the RM which then tags a point release, possibly as soon as the fix is available and merged.
 
 ## Platform
 
