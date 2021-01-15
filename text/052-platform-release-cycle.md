@@ -69,8 +69,7 @@ Artifacts:
 
 On time based schedule the RM branches vX.
 
-1. The RM shepherds the few PR which are ready and pins projects tracked by   CI. Then he tags. This should take 10 days. No packages are built, just a git
-tag. A docker image is built, so that project maintainers can use it in CI. No breaking change is allowed from now on (unless a severe problem is found).
+1. The RM shepherds the few PR which are ready and pins projects tracked by CI (using commit hashes, not necessarily tags). Then he tags Coq. This should take 10 days. No packages are built, just a git tag. A docker image is built, so that project maintainers can use it in CI. No breaking change is allowed from now on (unless a severe problem is found).
 2. Doc is updated (eg. Changes file) and eventual fixes required by the platform
 are done. Ideally no other change is done. This should take 10 days.
 3. In response to a severe bug report Coq devs make an hotfix in master which is backported to vX by the RM which then tags a point release, possibly as soon as the fix is available and merged.
